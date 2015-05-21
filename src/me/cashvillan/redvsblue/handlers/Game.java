@@ -11,12 +11,14 @@ import org.bukkit.Location;
 
 public class Game {
 	
+	public static ArrayList<String> status = new ArrayList<String>();
+	
 	public static void start() {
 		Bukkit.broadcastMessage("§6§lGame Starting!");
+		status.add("true");
 		
 		for(int x = 0; x < Teams.red.size(); x = x + 1) {
 			Bukkit.broadcastMessage("There are more than " + x + " on team red. Teleporting player " + x + " (" + Teams.red.get(x) + ") to a spawn...");
-			
 			Bukkit.getPlayer(Teams.red.get(x)).teleport(Teams.getSpawns("red").get(x));
 		}
 	}
