@@ -1,4 +1,3 @@
-![](http://i.imgur.com/Lv4M7ig.png)
 # **RedVsBlue - Minecraft TDM Arenas**
 RedVsBlue is a plugin for Bukkit that adds PVP arenas and the team deathmatch gamemode to Minecraft servers.
 
