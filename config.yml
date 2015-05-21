@@ -1,0 +1,14 @@
+#Permission "RvsB.admin" to edit in-game!
+red:
+   spawns: {}
+   settings:
+     displayTag: true
+     tag: '&4Red '
+     team-damage: false
+blue:
+   spawns: {}
+   settings:
+     displayTag: true
+     tag: '&9Blue '
+     team-damage: false
+score-board:

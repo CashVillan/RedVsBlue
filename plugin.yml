@@ -1,0 +1,8 @@
+name: RedVSBlue
+main: me.cashvillan.redvsblue.Main
+version: 1.0
+commands:
+  team:
+    description: View teams.
+  lobby:
+    description: Manage lobby.
