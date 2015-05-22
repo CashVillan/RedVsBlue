@@ -12,7 +12,9 @@ public class Scheduler {
 		new BukkitRunnable() {
 			public void run() {
 				Bukkit.broadcastMessage("§b§lWaiting for Players");
-				if (Bukkit.getOnlinePlayers().size() > 0) {
+				Game.status.clear();
+				Game.status.add("false");
+				if (Bukkit.getOnlinePlayers().size() > 2) {
 					this.cancel();
 					Game.start();
 

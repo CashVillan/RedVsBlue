@@ -6,3 +6,5 @@ commands:
     description: View teams.
   lobby:
     description: Manage lobby.
+  game:
+    description: View game.

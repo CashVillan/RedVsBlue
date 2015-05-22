@@ -2,6 +2,7 @@ package me.cashvillan.redvsblue;
 
 import java.io.File;
 
+import me.cashvillan.redvsblue.commands.Game;
 import me.cashvillan.redvsblue.commands.Lobby;
 import me.cashvillan.redvsblue.commands.Team;
 import me.cashvillan.redvsblue.handlers.Scheduler;
@@ -32,6 +33,7 @@ public class Main extends JavaPlugin implements Listener {
 	public void registerCommands() {
 		getCommand("team").setExecutor(new Team());
 		getCommand("lobby").setExecutor(new Lobby());
+		getCommand("game").setExecutor(new Game());
 	}
 	
 	public static Main getInstance() {

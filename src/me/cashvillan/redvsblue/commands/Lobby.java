@@ -31,12 +31,15 @@ public class Lobby implements CommandExecutor {
 						p.sendMessage(ChatColor.GREEN + "Lobby has been set!");
 						Game.setLobby(loc);
 					}
-				}
+					}
+				} else {
+					if (args[0].equalsIgnoreCase("view")) {
+						p.teleport(Game.getLobby());
+						p.sendMessage(ChatColor.GREEN + "You've been teleported to the lobby!");
+						return true;
+					}
 			}
 		}
-		
 		return false;
-		
 	}
-
 }

@@ -77,4 +77,12 @@ public class Teams {
 		
 		return teamLocsLocations;
 	}
+	
+	public static void toSpawn(Player player, String team) {
+		
+		String p = player.getName();
+		
+		if (team.contains(p)) {
+		}
+	}
 }
