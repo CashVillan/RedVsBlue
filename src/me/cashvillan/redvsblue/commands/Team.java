@@ -33,7 +33,7 @@ public class Team implements CommandExecutor {
 			if (args.length == 0) {
 				sender.sendMessage(ChatColor.RED + "Commands:");
 				sender.sendMessage("[/team <team>] View a team.");
-				sender.sendMessage("[/team setspawn <team>] Add spawns.");
+				sender.sendMessage("[/team addspawn <team>] Add spawns.");
 				sender.sendMessage("[/team add <player> <team>] Change teams.");
 
 			} else {

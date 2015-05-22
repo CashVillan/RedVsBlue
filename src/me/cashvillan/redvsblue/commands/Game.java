@@ -36,9 +36,30 @@ public class Game implements CommandExecutor {
 		Player p = (Player) sender;
 		
 		if (cmd.getName().equalsIgnoreCase("game")) {
-			p.sendMessage(ChatColor.GRAY + "Game State: " + ChatColor.valueOf(me.cashvillan.redvsblue.handlers.Game.getStatusColor().toUpperCase()) + me.cashvillan.redvsblue.handlers.Game.getStatus());
-			p.sendMessage(ChatColor.RED + "Red " + ChatColor.GRAY + "Team: " + ChatColor.YELLOW + redTeam);
-			p.sendMessage(ChatColor.BLUE + "Blue " + ChatColor.GRAY + "Team: " + ChatColor.YELLOW + blueTeam);
+			if (args.length == 0) {
+				p.sendMessage(ChatColor.GRAY + "Game State: " + ChatColor.valueOf(me.cashvillan.redvsblue.handlers.Game.getStatusColor().toUpperCase()) + me.cashvillan.redvsblue.handlers.Game.getStatus());
+				p.sendMessage(ChatColor.RED + "Red " + ChatColor.GRAY + "Team: " + ChatColor.YELLOW + redTeam);
+				p.sendMessage(ChatColor.BLUE + "Blue " + ChatColor.GRAY + "Team: " + ChatColor.YELLOW + blueTeam);
+			}
+			if (args.length == 1) {
+				if (args[0].equalsIgnoreCase("start")) {
+					if (me.cashvillan.redvsblue.handlers.Game.status.contains("true")) {
+						p.sendMessage(ChatColor.RED + "Game already started!");
+					}
+					else if (me.cashvillan.redvsblue.handlers.Game.status.contains("false")) {
+						me.cashvillan.redvsblue.handlers.Game.start();
+					}
+				}
+				if (args[0].equalsIgnoreCase("stop")) {
+					if(me.cashvillan.redvsblue.handlers.Game.status.contains("false")) {
+						p.sendMessage(ChatColor.RED + "Game already stopped!");
+					}
+					else if (me.cashvillan.redvsblue.handlers.Game.status.contains("true")) {
+						me.cashvillan.redvsblue.handlers.Game.stop();
+						p.sendMessage(ChatColor.RED + "Game has been stopped!");
+					}
+				}
+			}
 		}
 		
 		return false;

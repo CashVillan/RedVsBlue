@@ -1,25 +1,32 @@
 package me.cashvillan.redvsblue.handlers;
 
 import java.util.ArrayList;
+
 import me.cashvillan.redvsblue.Main;
 import me.cashvillan.redvsblue.utils.LocationUtils;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 
 public class Game {
 	
+	static Main plugin;
+	
 	public static ArrayList<String> status = new ArrayList<String>();
 	
 	public static void start() {
-		Bukkit.broadcastMessage("§6§lGame Starting!");
+		Bukkit.broadcastMessage(ChatColor.GOLD + "Game now starting!");
 		status.clear();
 		status.add("true");
-		
 		for(int x = 0; x < Teams.red.size(); x = x + 1) {
 			Bukkit.broadcastMessage("There are more than " + x + " on team red. Teleporting player " + x + " (" + Teams.red.get(x) + ") to a spawn...");
 			Bukkit.getPlayer(Teams.red.get(x)).teleport(Teams.getSpawns("red").get(x));
 		}
+	}
+	
+	public static void stop() {
+		
 	}
 	
 	public static void setLobby(Location loc) {
