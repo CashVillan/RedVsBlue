@@ -2,9 +2,8 @@ package me.cashvillan.redvsblue;
 
 import java.io.File;
 
-import me.cashvillan.redvsblue.commands.Game;
-import me.cashvillan.redvsblue.commands.Lobby;
-import me.cashvillan.redvsblue.commands.Team;
+import me.cashvillan.redvsblue.commands.*;
+import me.cashvillan.redvsblue.listeners.*;
 import me.cashvillan.redvsblue.handlers.Scheduler;
 
 import org.bukkit.event.Listener;
@@ -15,10 +14,14 @@ public class Main extends JavaPlugin implements Listener {
 	
 	static Main plugin;
 	
-	private final me.cashvillan.redvsblue.listeners.PlayerModifier PlayerModifier = new me.cashvillan.redvsblue.listeners.PlayerModifier();
+	private final GameStats GameStats = new GameStats();
+	private final PlayerModifier PlayerModifier = new PlayerModifier();
+	private final PlayerStats PlayerStats = new PlayerStats();
+	private final TeamModifiers TeamModifiers = new TeamModifiers();
 
 	public void onEnable() {
 		plugin = this;
+		FileManager.loadplayersConfig();
 		registerEvents();
 		registerCommands();
 		Scheduler.waitingforPlayers();
@@ -27,7 +30,11 @@ public class Main extends JavaPlugin implements Listener {
 	
 	public void registerEvents() {
 		PluginManager pm = getServer().getPluginManager();
+		pm.registerEvents(this.GameStats, this);
 		pm.registerEvents(this.PlayerModifier, this);
+		pm.registerEvents(this.PlayerStats, this);
+		pm.registerEvents(this.TeamModifiers, this);
+
 	}
 	
 	public void registerCommands() {
@@ -39,5 +46,4 @@ public class Main extends JavaPlugin implements Listener {
 	public static Main getInstance() {
 		return plugin;
 	}
-	
 }

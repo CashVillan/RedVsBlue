@@ -12,9 +12,13 @@ import org.bukkit.entity.Player;
 
 public class Teams {
 	
+	public static Integer redKills = new Integer(0);
+	public static Integer blueKills = new Integer(0);
+	public static Integer redDeaths = new Integer(0);
+	public static Integer blueDeaths = new Integer(0);
+	
 	public static ArrayList<String> red = new ArrayList<String>();
 	public static ArrayList<String> blue = new ArrayList<String>();
-
 	
 	public static String team(Player p) {
 		String team = "";

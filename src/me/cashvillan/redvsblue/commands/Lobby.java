@@ -1,5 +1,6 @@
 package me.cashvillan.redvsblue.commands;
 
+import me.cashvillan.redvsblue.Main;
 import me.cashvillan.redvsblue.handlers.Game;
 
 import org.bukkit.ChatColor;
@@ -25,19 +26,27 @@ public class Lobby implements CommandExecutor {
 					p.sendMessage(ChatColor.RED + "Commands:");
 					p.sendMessage("[/lobby set] Set the lobby.");
 					p.sendMessage("[/lobby view] Teleport to lobby.");
-				} else {
+					return true;
+					
+				} else if (args.length == 1) {
 					Location loc = ((Player) sender).getLocation();
+					
 					if (args[0].equalsIgnoreCase("set")) {
 						p.sendMessage(ChatColor.GREEN + "Lobby has been set!");
 						Game.setLobby(loc);
-					}
-					}
-				} else {
-					if (args[0].equalsIgnoreCase("view")) {
-						p.teleport(Game.getLobby());
-						p.sendMessage(ChatColor.GREEN + "You've been teleported to the lobby!");
 						return true;
+						
+					} else if (args[0].equalsIgnoreCase("view")) {
+						
+						if (Main.getInstance().getConfig().contains("lobby")) {
+							p.teleport(Game.getLobby());
+							p.sendMessage(ChatColor.GREEN + "Success!");
+							return true;
+						} else {
+							p.sendMessage(ChatColor.RED + "Lobby not set!");
+						}
 					}
+				}
 			}
 		}
 		return false;

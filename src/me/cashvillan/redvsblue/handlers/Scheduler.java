@@ -15,8 +15,7 @@ public class Scheduler {
 				int onlineplayers = Bukkit.getOnlinePlayers().size();
 				int maxplayers = Bukkit.getMaxPlayers();
 				Bukkit.broadcastMessage(ChatColor.GOLD + "Waiting on " + ChatColor.YELLOW + "" + (maxplayers - onlineplayers) + ChatColor.GOLD + " more players!");
-				Game.status.clear();
-				Game.status.add("false");
+				Game.status = false;
 				if (Bukkit.getOnlinePlayers().size() == 1) {
 					this.cancel();
 					Game.start();
