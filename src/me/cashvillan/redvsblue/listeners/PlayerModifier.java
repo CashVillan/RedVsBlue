@@ -1,6 +1,7 @@
 package me.cashvillan.redvsblue.listeners;
 
 import me.cashvillan.redvsblue.handlers.Teams;
+import me.cashvillan.redvsblue.utils.ScoreboardUtils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -14,8 +15,9 @@ public class PlayerModifier implements Listener {
 	
 	@EventHandler
 	public static void onPlayerJoin(PlayerJoinEvent event) {
-		String p = event.getPlayer().getName();
-		event.setJoinMessage(ChatColor.GRAY + p + ChatColor.GOLD + " has joined! " + ChatColor.GRAY + "(" + ChatColor.GOLD + Bukkit.getOnlinePlayers().size() + ChatColor.GRAY + "/" + ChatColor.GOLD + Bukkit.getMaxPlayers() + ChatColor.GRAY + ")");
+		Player p = event.getPlayer();
+		ScoreboardUtils.startScoreboard(p);
+		event.setJoinMessage(ChatColor.GRAY + p.getName() + ChatColor.GOLD + " has joined! " + ChatColor.GRAY + "(" + ChatColor.GOLD + Bukkit.getOnlinePlayers().size() + ChatColor.GRAY + "/" + ChatColor.GOLD + Bukkit.getMaxPlayers() + ChatColor.GRAY + ")");
 	}
 	
 	@EventHandler

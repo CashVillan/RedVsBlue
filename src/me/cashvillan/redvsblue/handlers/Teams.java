@@ -7,6 +7,7 @@ import java.util.Random;
 import me.cashvillan.redvsblue.Main;
 import me.cashvillan.redvsblue.utils.LocationUtils;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -83,10 +84,7 @@ public class Teams {
 	}
 	
 	public static void toSpawn(Player player, String team) {
-		
-		String p = player.getName();
-		
-		if (team.contains(p)) {
-		}
+		player.teleport(getSpawns(team).get(new Random().nextInt(getSpawns(team).size())));
+		player.sendMessage(ChatColor.GREEN + "You've respawned!");
 	}
 }
